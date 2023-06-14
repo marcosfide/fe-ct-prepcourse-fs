@@ -34,15 +34,15 @@ function redondearNumero(num) {
 function redondearHaciaArriba(num) {
    // Redondea "num" hacia arriba y retórnalo.
    // Tu código:
-   var numeroRedondeadoArriba = Math.ceil(num)
-   return numeroRedondeadoArriba
+   var numeroRedondeadoArriba = Math.ceil(num);
+   return numeroRedondeadoArriba;
 }
 
 function numeroRandom() {
    // Genera un número al azar entre 0 y 1 y retórnalo.
    // Tu código:
-   var numeroAlAzar = Math.random()
-   return numeroAlAzar
+   var numeroAlAzar = Math.random();
+   return numeroAlAzar;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/

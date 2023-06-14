@@ -5,48 +5,48 @@ function sonIguales(x, y) {
    // Retorna true si "x" e "y" son iguales.
    // De lo contrario, retorna false.
    // Tu código:
-   var sonIguales = x == y
-   return sonIguales
+   var sonIguales = x === y;
+   return sonIguales;
 }
 
 function tienenMismaLongitud(str1, str2) {
    // Retorna true si los dos strings tienen la misma longitud.
    // De lo contrario, retorna false.
    // Tu código:
-   var mismaLongitud = str1.length == str2.length
-   return mismaLongitud
+   var mismaLongitud = str1.length === str2.length;
+   return mismaLongitud;
 }
 
 function menosQueNoventa(num) {
    // Retorna true si el argumento "num" es menor que noventa.
    // De lo contrario, retorna false.
    // Tu código:
-   var menorANoventa = num < 90
-   return menorANoventa
+   var menorANoventa = num < 90;
+   return menorANoventa;
 }
 
 function mayorQueCincuenta(num) {
    // Retorna true si el argumento "num" es mayor que cincuenta.
    // De lo contrario, retorna false.
    // Tu código:
-   var mayorACincuenta = num > 50
-   return mayorACincuenta
+   var mayorACincuenta = num > 50;
+   return mayorACincuenta;
 }
 
 function esPar(num) {
    // Retorna true si "num" es par.
    // De lo contrario, retorna false.
    // Tu código:
-   var numeroPar = num % 2 == 0
-   return numeroPar
+   var numeroPar = num % 2 === 0;
+   return numeroPar;
 }
 
 function esImpar(num) {
    // Retorna true si "num" es impar.
    // De lo contrario, retorna false.
    // Tu código:
-   var numeroImpar = num % 2 != 0
-   return numeroImpar
+   var numeroImpar = num % 2 != 0;
+   return numeroImpar;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
