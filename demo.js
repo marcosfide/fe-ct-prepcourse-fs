@@ -133,8 +133,87 @@ console.log(suma);
 
 // Objeto Argument
 
-function saludo (nombre, apellido) {
-    console.log(arguments);
+// function saludo (nombre, apellido) {
+//     console.log(arguments);
+// }
+
+// saludo('Auri', 'Sandoval');
+
+
+////             OBJETOS          ////
+
+var usuario = {
+    nombre: 'Andres',
+    password: 'hola1234',
+    edad: 26,
+    online: true,
+    amigos: ['Maria', 'Jose', 'Luis']
+};
+
+// Formas de acceder a los elementos:
+//notacion de punto .   -->  objeto.propiedad
+// console.log(usuario.nombre, usuario.edad);
+//notacion de corchete []  -->  objeto['propiedad']
+// console.log(usuario['amigos'],usuario['online']);
+
+
+// Asignando y modificando valores del objeto
+
+usuario.pais = 'Colombia';
+usuario['identificacion'] = 314324123;
+usuario.edad = 28;
+
+var profesion = 'developer';
+
+usuario.profesion = profesion;
+
+usuario['5hola123'] = true;
+
+function agregarProfesion(profesion, valor) {
+    usuario[profesion] = valor;
 }
 
-saludo('Auri', 'Sandoval');
+// Eliminar propiedades de un objeto  delete 
+
+delete usuario['5hola123'];
+// delete usuario.amigos;
+
+
+// Metodos de los Objetos
+
+usuario.decirHola = function(name) {
+    return 'Hola ' + name;
+}
+// console.log(usuario);
+// console.log(usuario.decirHola('Lucas'));
+
+// objeto.hasOwnProperty('propiedad') //sirve para preguntar si existe o no una propiedad en un objeto
+
+// console.log(usuario.hasOwnProperty('pais'));
+
+
+// console.log(Object.keys(usuario)); // traemos todas la propiedades del objeto
+
+// console.log(Object.values(usuario));  //traemos todos los valores del objeto
+
+// usuario.amigos.push('joel');
+// console.log(usuario.amigos);
+// console.log(usuario.amigos.length)
+
+
+// bucle for ... in
+
+// for (var clave in usuario) {
+//     if (clave === 'nombre')
+//     console.log(usuario[clave]);
+// };
+
+
+//      this.propiedad   -- nos sirve para traer una propiedad que se encuentra dentro del objeto
+
+usuario.decirHola = function() {
+    return 'Hola ' + this.nombre + ' tienes ' + this.edad;
+}
+
+console.log(usuario.decirHola());
+
