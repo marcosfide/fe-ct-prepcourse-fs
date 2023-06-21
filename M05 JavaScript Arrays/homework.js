@@ -59,25 +59,43 @@ function dePalabrasAFrase(palabras) {
    //    }
    // }
    // return concatenacion;
-   return palabras.join(' ');
+
+   // return palabras.join(' ');
+
+   //solucion callback
+   var frase = palabras.reduce(function (acc, palabra) {
+      return acc + ' ' + palabra;
+   })
+   return frase;
 }
 
 function arrayContiene(array, elemento) {
    // Verifica si el elemento existe dentro del arreglo recibido.
    // Retornar true si está, o false si no está.
    // Tu código:
-   return array.includes(elemento);
+   // return array.includes(elemento);
+   for (var i = 0; i < array.length; i++) {
+      if (array[i] === elemento) {
+         return true;
+      }
+   }
+   return false;
 }
 
 function agregarNumeros(arrayOfNums) {
    // El parámetro "arrayOfNums" debe ser un arreglo de números.
    // Suma todos los elementos y retorna el resultado.
    // Tu código:
-   var resultado = 0;
-   for (var i = 0; i < arrayOfNums.length; i++){
-      resultado = resultado + arrayOfNums[i];
-   }
-   return resultado;
+   // var resultado = 0;
+   // for (var i = 0; i < arrayOfNums.length; i++){
+   //    resultado = resultado + arrayOfNums[i];
+   // }
+   // return resultado;
+
+   var suma = arrayOfNums.reduce(function (acc, numero) {
+      return acc + numero;
+   })
+   return suma;
 }
 
 function promedioResultadosTest(resultadosTest) {
@@ -90,18 +108,29 @@ function promedioResultadosTest(resultadosTest) {
    }
    var promedio = suma / resultadosTest.length;
    return promedio;
+   // var suma = resultadosTest.reduce(function (acc, nota) {
+   //    return acc + nota;
+   // })
+   // return suma / resultadosTest.length;
 }
 
 function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
    // Retornar el número más grande.
    // Tu código:
-   var numMayor = 0;
-   for(var i = 0; i < arrayOfNums.length; i++) {      
-      if (arrayOfNums[i] > numMayor) {
-         numMayor = arrayOfNums[i];
+   var numMayor = arrayOfNums[0];
+   // for(var i = 0; i < arrayOfNums.length; i++) {      
+   //    if (arrayOfNums[i] > numMayor) {
+   //       numMayor = arrayOfNums[i];
+   //    }
+   // }
+   // return numMayor;
+
+   arrayOfNums.forEach(function (numero) {
+      if (numero >= numMayor) {
+         numMayor = numero
       }
-   }
+   });
    return numMayor;
 }
 
@@ -125,11 +154,18 @@ function cuentoElementos(array) {
    // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
    // Tu código:
    var contador = 0;
-   for (var i = 0; i < array.length; i++) {
-      if (array[i] > 18) {
-         contador ++;
+   // for (var i = 0; i < array.length; i++) {
+   //    if (array[i] > 18) {
+   //       contador ++;
+   //    }
+   // }
+   // return contador;
+
+   array.forEach(function(numero) {
+      if (numero > 18) {
+         contador++;
       }
-   }
+   })
    return contador;
 }
 
@@ -150,16 +186,14 @@ function empiezaConNueve(num) {
    // Debe retornar true si el entero inicia con 9 y false en otro caso.
    // Tu código:
    var numString = num.toString();
-   for (var i = 0; i < numString.length; i++){
-      return numString[0] == 9;
-   }
+   return numString[0] === '9';
 }
 
 function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar true.
    // Caso contrario retornar false.
    // Tu código:
-   for (var i = 0; i < array.length; i++) {
+   for (var i = 1; i < array.length; i++) {
       if (array[0] !== array[i]) {
          return false;
       }
@@ -172,16 +206,28 @@ function mesesDelAño(array) {
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
-   var nuevoArray = [];
-   for (var i = 0; i < array.length; i++) {
-      if (array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
-         nuevoArray.push(array[i]);
+   // var nuevoArray = [];
+   // for (var i = 0; i < array.length; i++) {
+   //    if (array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
+   //       nuevoArray.push(array[i]);
+   //    }
+   // }
+   // if (nuevoArray.length !== 3) {
+   //    return "No se encontraron los meses pedidos"
+   // } else {
+   //    return nuevoArray;
+   // }
+
+   var meses = [];
+   array.forEach(function(mes) {
+      if (mes === "Enero" || mes === "Marzo" || mes === "Noviembre") {
+         meses.push(mes);
       }
-   }
-   if (nuevoArray.length !== 3) {
+   });
+   if (meses.length === 3){
+      return meses
+   } else{
       return "No se encontraron los meses pedidos"
-   } else {
-      return nuevoArray;
    }
 }
 
@@ -189,25 +235,39 @@ function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
-   var nuevoArray = [];
-   for (var i = 0 ; i <= 10; i++) {
-      var multiplicacion = i * 6;
-      nuevoArray.push(multiplicacion);
-   }
-   return nuevoArray;
+   // var nuevoArray = [];
+   // for (var i = 0 ; i <= 10; i++) {
+   //    var multiplicacion = i * 6;
+   //    nuevoArray.push(multiplicacion);
+   // }
+   // return nuevoArray;
+
+   var numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+   var tabla = numeros.map(function (numero) {
+      return numero * 6;
+   })
+   return tabla;
 }
 
 function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
-   var nuevoArray = [];
-   for (var i = 0; i < array.length; i++) {
-      if (array[i] > 100) {
-         nuevoArray.push(array[i]);
+   // var nuevoArray = [];
+   // for (var i = 0; i < array.length; i++) {
+   //    if (array[i] > 100) {
+   //       nuevoArray.push(array[i]);
+   //    }
+   // }
+   // return nuevoArray;
+
+   var filtro = [];
+   array.forEach(function (numero) {
+      if (numero > 100) {
+         filtro.push(numero);
       }
-   }
-   return nuevoArray;
+   })
+   return filtro;
 }
 
 /* ----------------------------------------------------------------------------------
