@@ -215,5 +215,102 @@ usuario.decirHola = function() {
     return 'Hola ' + this.nombre + ' tienes ' + this.edad;
 }
 
-console.log(usuario.decirHola());
+// console.log(usuario.decirHola());
 
+//              CLASES              ///
+
+// // funciones constructoras
+// function Gato(nombre, edad, dueno) {
+//     this.nombre = nombre;
+//     this.edad = edad;
+//     this.dueno = dueno;
+//     this.maullar = function() {
+//         return 'Mi nombre es ' + this.nombre + ' ...Meow!'
+//     }
+// }
+
+// // utilizando class para crear un objeto
+// // class Gato {
+// //     constructor(nombre, edad, dueno) {
+// //         this.nombre = nombre;
+// //         this.edad = edad;
+// //         this.dueno = dueno;
+// //         this.maullar = function () {
+// //             return 'Mi nombre es ' + this.nombre + ' ...Meow!';
+// //         };
+// //     }
+// // }
+
+
+// //                                                              prototype
+
+// Gato.prototype.decirEdad = function () {
+//     return this.edad;
+// };
+
+// Gato.prototype.color = function (color) {
+//     this.color = this.color;
+// };
+
+// // Gato.prototype.altura = 40;
+
+// // instanciamos la clase para, en este caso, crear un gato
+
+// var gato1 = new Gato ('michi', 10, 'Alejo');
+// var gato2 = new Gato ('Canela', 3);
+
+// console.log(gato1.decirEdad());
+// console.log(gato1.altura);
+
+// console.log(gato2);
+
+// console.log(gato1.maullar());
+
+// console.log(gato1.color('negro'));
+
+// console.log(gato1);
+
+
+
+////                                                 assign  -->  nos permite agregar propiedades a un objeto pasado por parametro
+
+////                                           herencias   
+
+class Animal {
+    constructor (nombre, raza, filum) {
+        this.nombre = nombre;
+        this.raza = raza;
+        this.filum = filum;
+        this.ladrar = function () {
+            return 'Guau!';
+        }
+    }
+}
+
+class Perro extends Animal{
+    constructor(nombre, color, filum) {
+        super(nombre, filum);
+        this.color = color;
+    }
+}
+
+
+var perrito1 = new Perro('Firulais', 'blanco', 'filuminimus');
+
+// console.log(perrito1);
+
+perrito1.ladrar();
+
+// var animal1 = new Animal('Firulais');
+
+
+
+/////                    callbacks    son funciones que reciben como argumento otra funcion y pueden llamarse dentro de la primera
+
+function decirHolaAlUsuario(usuario) {
+    return 'Hola ' + usuario + '!';
+}
+
+function crearSaludo() //falta terminar
+
+crearSaludo('Dan',decirHolaAlUsuario);

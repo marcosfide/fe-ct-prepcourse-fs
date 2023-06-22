@@ -68,18 +68,20 @@ function tieneEmail(objetoUsuario) {
    // Verifica si el "objetoUsuario", en su propiedad "email", posee un valor definido.
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
-   if (objetoUsuario['email'] !== undefined && objetoUsuario['email'] !== null){
-      return true;
-   } else {
-      return false;
-   }
+   // if (objetoUsuario['email'] !== undefined && objetoUsuario['email'] !== null){
+   //    return true;
+   // } else {
+   //    return false;
+   // }
+   return objetoUsuario.email !== undefined && objetoUsuario.email !== null;
 }
 
 function tienePropiedad(objeto, propiedad) {
    // Verifica si el objeto recibido posee una propiedad con el mismo nombre que el parámetro "propiedad".
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
-   return objeto[propiedad] !== undefined;
+   // return objeto[propiedad] !== undefined;
+   return objeto.hasOwnProperty(propiedad);
 }
 
 function verificarPassword(objetoUsuario, password) {
@@ -113,10 +115,20 @@ function pasarUsuarioAPremium(objetoMuchosUsuarios) {
    // Define esta propiedad de todos los usuarios como true.
    // Retornar el arreglo.
    // Tu código:
-   for (var i = 0; i < objetoMuchosUsuarios.length; i++){
-      objetoMuchosUsuarios[i].esPremium = true;
+   // for (var i = 0; i < objetoMuchosUsuarios.length; i++){
+   //    objetoMuchosUsuarios[i].esPremium = true;
+   // }
+   // return objetoMuchosUsuarios;
+
+   // objetoMuchosUsuarios.forEach(function (usuario) {
+   //    usuario.esPremium = true;
+   // });
+   // return objetoMuchosUsuarios;
+
+   for (var usuario in objetoMuchosUsuarios) {
+      objetoMuchosUsuarios[usuario].esPremium = true;
    }
-   return objetoMuchosUsuarios;
+   return objetoMuchosUsuarios
 }
 
 function sumarLikesDeUsuario(objetoUsuario) {
@@ -125,11 +137,17 @@ function sumarLikesDeUsuario(objetoUsuario) {
    // Cada post posee una propiedad llamada "likes". Esta propiedad es un número.
    // Debes sumar los likes de todos los post y retornar el resultado.
    // Tu código:
-   resultado = 0;
-   for (var i = 0; i < objetoUsuario.posts.length ; i++) {
-      resultado += objetoUsuario.posts[i].likes;
-   }
-   return resultado;
+   // resultado = 0;
+   // for (var i = 0; i < objetoUsuario.posts.length ; i++) {
+   //    resultado += objetoUsuario.posts[i].likes;
+   // }
+   // return resultado;
+
+   var totalLikes = 0;
+   objetoUsuario.posts.forEach(function (post) {
+      totalLikes += post.likes;
+   });
+   return totalLikes;
 }
 
 function agregarMetodoCalculoDescuento(objetoProducto) {
@@ -148,7 +166,7 @@ function agregarMetodoCalculoDescuento(objetoProducto) {
       var precioFinal = this.precio - descuento;
       return precioFinal;
    };
-   return objetoProducto
+   return objetoProducto;
 }
     
 
